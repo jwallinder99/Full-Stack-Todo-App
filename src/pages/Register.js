@@ -1,6 +1,7 @@
 import React, { useState, useContext} from "react";
 import { UserCredentials } from "../App"
 import { useNavigate } from "react-router-dom";
+import baseUrl from '../utils/baseUrl'
 import {
     Container,
     Box,
@@ -29,7 +30,7 @@ export default function Register() {
 
         try{
             //make request to api endpoint
-            const response = await fetch(`/users/register`,{
+            const response = await fetch(`${baseUrl}/users/register`,{
                 //post request
                 method: "POST",
                 headers: {

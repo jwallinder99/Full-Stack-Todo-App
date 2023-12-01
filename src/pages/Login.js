@@ -1,6 +1,7 @@
 import React, { useState, useContext} from "react";
 import { UserCredentials } from "../App"
 import { useNavigate } from "react-router-dom";
+import baseUrl from '../utils/baseUrl'
 import {
     Container,
     Box,
@@ -28,7 +29,7 @@ export default function Login() {
         e.preventDefault();
         try{
             //make api request
-            const response = await fetch(`/users/login`,{
+            const response = await fetch(`${baseUrl}/users/login`,{
                 //post request
                 method: "POST",
                 headers: {
