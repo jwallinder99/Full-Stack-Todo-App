@@ -18,7 +18,7 @@ import {
   } from '@mui/material'
 import TodoItem from './TodoItem'
 import EditIcon from '@mui/icons-material/Edit';
-
+import baseUrl from '../utils/baseUrl'
 //todos component
 export default function Todos (props) {
 
@@ -46,7 +46,7 @@ export default function Todos (props) {
         try {
             console.log(token)
             //response for api fetch request with username from credentials put into the query
-            const response = await fetch(`/tasks/getTodos?username=${username}`,{
+            const response = await fetch(`${baseUrl}/tasks/getTodos?username=${username}`,{
                 //get request 
                 method: "GET",
                 //insert token into authorization headers/specify content type
@@ -81,7 +81,7 @@ export default function Todos (props) {
     const addToDB = async (updatedTodos) => {
         try {
             //make put request to api
-            const response = await fetch('/tasks/addTodo', {
+            const response = await fetch(`${baseUrl}/tasks/addTodo`, {
                 //use token in auth header
                 method: "PUT",
                 headers: {
